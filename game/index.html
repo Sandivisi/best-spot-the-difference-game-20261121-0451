@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cari Bedanya — Taman Senja</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="brand">
+      <h1>Cari Bedanya</h1>
+      <p class="tagline">Taman Senja &middot; temukan semua perbedaan sebelum waktu habis</p>
+    </div>
+    <div class="hud">
+      <div class="hud-box" id="hud-level" title="Level saat ini">Level 1/3</div>
+      <div class="hud-box" id="hud-found" title="Perbedaan yang sudah ditemukan">Ditemukan 0/7</div>
+      <div class="hud-box" id="hud-left" title="Perbedaan yang masih tersembunyi">Sisa 7</div>
+      <div class="hud-box" id="hud-time" title="Waktu tersisa">02:00</div>
+      <div class="hud-box" id="hud-score" title="Skor">Skor 0</div>
+    </div>
+  </header>
+
+  <nav id="levelbar" aria-label="Pilih level">
+    <button class="level-btn active" data-level="0">1 &middot; Kebun Senja</button>
+    <button class="level-btn" data-level="1">2 &middot; Pantai Pagi</button>
+    <button class="level-btn" data-level="2">3 &middot; Hutan Hujan</button>
+    <span class="level-hint">Keyboard: H = petunjuk, R = ulangi level, 1/2/3 = pindah level</span>
+  </nav>
+
+  <main id="stage">
+    <section class="panel" id="panel-left">
+      <div class="panel-label">Gambar A <span class="panel-sub">asli</span></div>
+      <canvas id="canvas-left" width="560" height="420"></canvas>
+    </section>
+    <section class="panel" id="panel-right">
+      <div class="panel-label">Gambar B <span class="panel-sub">ada yang beda!</span></div>
+      <canvas id="canvas-right" width="560" height="420"></canvas>
+    </section>
+  </main>
+
+  <div id="toolbar">
+    <button id="btn-hint" class="tool-btn">💡 Petunjuk <span id="hint-count">(3)</span></button>
+    <button id="btn-restart" class="tool-btn">↻ Ulangi Level</button>
+    <button id="btn-sound" class="tool-btn" aria-pressed="true">🔊 Suara: Nyala</button>
+    <div id="message" role="status">Klik perbedaan pada salah satu gambar. Selamat berburu!</div>
+  </div>
+
+  <div id="overlay" class="hidden">
+    <div id="overlay-card">
+      <h2 id="overlay-title">Hebat!</h2>
+      <p id="overlay-text"></p>
+      <p id="overlay-stats"></p>
+      <div class="overlay-buttons">
+        <button id="btn-again" class="tool-btn big">Main Lagi</button>
+        <button id="btn-next" class="tool-btn big primary">Level Berikutnya →</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Game orisinal "Cari Bedanya — Taman Senja". Semua gambar digambar prosedural di kanvas, tanpa aset luar. Dibuat untuk bounty make.fun.</p>
+  </footer>
+</div>
+<script type="module" src="game.js"></script>
+</body>
+</html>
